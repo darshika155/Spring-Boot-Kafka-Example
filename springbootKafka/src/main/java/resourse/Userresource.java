@@ -18,6 +18,7 @@ public class Userresource {
 	@GetMapping("/publish/message")
 	public String post(@PathVariable("message") final String message) {
 		
+		// send topic to kafkatemplate
 		kafkatemplate.send(TOPIC, message);
 		return "Published Successfully";
 		
